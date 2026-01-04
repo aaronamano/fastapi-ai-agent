@@ -1,5 +1,5 @@
 ## Overview
-[https://youtu.be/eSbeub2ZeNk?si=weXtyqePy0jQaYvD](Build and Deploy a Python AI Agent) by Tech with Tim
+[Build and Deploy a Python AI Agent](https://youtu.be/eSbeub2ZeNk?si=weXtyqePy0jQaYvD) by Tech with Tim
 
 ## Setup
 ```bash

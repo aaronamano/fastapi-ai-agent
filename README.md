@@ -2,6 +2,12 @@
 [Build and Deploy a Python AI Agent](https://youtu.be/eSbeub2ZeNk?si=weXtyqePy0jQaYvD) by Tech with Tim
 
 ## Setup
+### Frontend
+```bash
+cd frontend
+pnpm install
+```
+### Backend
 ```bash
 cd backend
 conda create -n langchain-env python=3.11 -y

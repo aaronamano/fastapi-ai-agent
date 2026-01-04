@@ -1,11 +1,19 @@
-from fastapi import FastAPI, HTTPException, Request
-from fastapi.templating import Jinja2Templates
+from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from agent import run_agent
 import uvicorn
 
 app = FastAPI()
-templates = Jinja2Templates(directory="templates")
+
+# Enable CORS for frontend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Request model
 class AgentRequest(BaseModel):
@@ -17,10 +25,7 @@ class AgentResponse(BaseModel):
     """Response model for agent invocation."""
     response: str
 
-@app.get("/")
-async def home(request: Request):
-    """Serve the amin HTML interface."""
-    return templates.TemplateResponse("index.html", {"request": request})
+
 
 @app.post("/agent", response_model=AgentResponse)
 async def invoke_agent(request: AgentRequest):

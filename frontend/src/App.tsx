@@ -51,7 +51,12 @@ function App() {
           />
         </div>
         <button type="submit" disabled={loading || !prompt.trim()} className="submit-btn">
-          {loading ? 'Processing...' : 'Send to Agent'}
+          {loading ? (
+            <span className="loading-spinner">
+              <span className="spinner"></span>
+              Processing...
+            </span>
+          ) : 'Send to Agent'}
         </button>
       </form>
       
